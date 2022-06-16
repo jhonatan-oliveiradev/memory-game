@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css2?family=Press+start+2P&display=swap);
+
+@import url(login.css);
+@import url(game.css);
+
+:root {
+  --primary-color: #333;
+  --button-color: #ee665c;
+
+  --border-radius: 0.5rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: none;
+  box-sizing: border-box;
+  font-family: "Press Start", cursive;
+}
