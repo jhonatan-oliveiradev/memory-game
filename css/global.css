@@ -2,6 +2,7 @@
 
 @import url(login.css);
 @import url(game.css);
+@import url(finish.css);
 
 :root {
   --primary-color: #333;
