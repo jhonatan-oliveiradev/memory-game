@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-    <img src="../images/home.png" alt="Home">
+    <img src="../images/preview.png" alt="Home">
 </p>
 
 <p align="center">
