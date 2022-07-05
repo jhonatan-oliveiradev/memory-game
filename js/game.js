@@ -1,4 +1,6 @@
 const grid = document.querySelector(".grid");
+const spanPlayer = document.querySelector(".player");
+const timer = document.querySelector(".timer");
 
 const characters = [
   "beth",
@@ -13,6 +15,12 @@ const characters = [
   "scroopy",
 ];
 
+const createElement = (tag, className) => {
+  const element = document.createElement(tag);
+  element.className = className;
+  return element;
+};
+
 let firstCard = "";
 let secondCard = "";
 
@@ -20,7 +28,11 @@ const checkEndGame = () => {
   const disabledCards = document.querySelectorAll(".disabled-card");
 
   if (disabledCards.length === 20) {
-    window.location("/../pages/finish.html");
+    // window.location("/../pages/finish.html");
+    clearInterval(this.loop);
+    alert(
+      `Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML} segundos`
+    );
   }
 };
 
@@ -29,8 +41,8 @@ const checkCards = () => {
   const secondCharacter = secondCard.getAttribute("data-character");
 
   if (firstCharacter === secondCharacter) {
-    firstCard.firstChild.classList.add("disable-card");
-    secondCard.firstChild.classList.add("disable-card");
+    firstCard.firstChild.classList.add("disabled-card");
+    secondCard.firstChild.classList.add("disabled-card");
 
     firstCard = "";
     secondCard = "";
@@ -63,12 +75,6 @@ const revealCard = ({ target }) => {
   }
 };
 
-const createElement = (tag, className) => {
-  const element = document.createElement(tag);
-  element.className = className;
-  return element;
-};
-
 const createCard = (character) => {
   const card = createElement("div", "card");
   const front = createElement("div", "face front");
@@ -90,10 +96,23 @@ const loadGame = () => {
 
   const shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);
 
-  duplicateCharacters.forEach((character) => {
+  shuffledArray.forEach((character) => {
     const card = createCard(character);
     grid.appendChild(card);
   });
 };
 
-loadGame();
+const startTimer = () => {
+  this.loop = setInterval(() => {
+    const currentTime = +timer.innerHTML;
+    timer.innerHTML = currentTime + 1;
+  }, 1000);
+};
+
+window.onload = () => {
+  spanPlayer.innerHTML = localStorage.getItem("player");
+
+  startTimer();
+
+  loadGame();
+};

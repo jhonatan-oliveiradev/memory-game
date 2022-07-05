@@ -1,10 +1,39 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 1.25rem 3.125rem;
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  padding: 1.8rem;
+  margin: 0 0 1.8rem;
+  background-color: rgba(67, 226, 102, 0.7);
+  border-radius: 0.25rem;
+}
+
+header span {
+  color: var(--text-color);
+  font-size: 1.5rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 15px;
   width: 100%;
   max-width: 800px;
-  margin: 4rem auto;
+  margin: 0 auto;
 }
 
 .card {
@@ -15,6 +44,8 @@
   border-radius: var(--border-radius);
   transition: all 0.4s ease;
   transform-style: preserve-3d;
+  cursor: pointer;
+  background-color: #c6e2ff;
 }
 
 .face {
@@ -43,7 +74,7 @@
   transform: rotateY(180deg);
 }
 
-.disable-card {
+.disabled-card {
   filter: saturate(0);
   opacity: 0.5;
 }
